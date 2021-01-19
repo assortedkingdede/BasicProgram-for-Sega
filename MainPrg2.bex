@@ -1,0 +1,59 @@
+	option SEGACD PROGRAM
+	FreeAllSprites
+	
+	disable screen
+	loadtiles sonic1l,1119,128
+	pallettes pallette1,0,0,16
+	gosub draw
+	cdplay2 3
+	sleep 200
+	
+	while 1
+		disable screen
+		loadtiles sonicR1,1119,128
+		pallettes pallette2,0,0,16
+		gosub draw
+		sleep 25
+	
+		disable screen
+		loadtiles sonicR2,1119,128
+		pallettes pallette3,0,0,16
+		gosub draw
+		sleep 25
+		
+		disable screen
+		loadtiles sonicR3,1119,128
+		pallettes pallette4,0,0,16
+		gosub draw
+		sleep 25
+	
+		disable screen
+		loadtiles sonicR4,1119,128
+		pallettes pallette5,0,0,16
+		gosub draw
+		sleep 25
+	wend
+	
+draw:
+	i=128
+	for y=0 to 27
+		for x=0 to 39
+			drawtile i,x,y
+			i++
+		next
+	next
+	enable screen
+	return
+	
+	
+sonic1l:		datafile DATA\Sonicl1.bin,bin
+sonicR1:		datafile DATA\SonicR1.bin,bin
+sonicR2:		datafile DATA\SonicR2.bin,bin
+sonicR3:		datafile DATA\SonicR3.bin,bin
+sonicR4:		datafile DATA\SonicR4.bin,bin
+
+pallette1:		datafile PALETTES\SonicI1.bin,bin
+pallette2:		datafile PALETTES\SonicR1.bin,bin
+pallette3:		datafile PALETTES\SonicR2.bin,bin
+pallette4:		datafile PALETTES\SonicR3.bin,bin
+pallette5:		datafile PALETTES\SonicR4.bin,bin

@@ -1,0 +1,71 @@
+	option SEGACD PROGRAM
+	FreeAllSprites
+	disable screen
+	loadtiles sonic1l,1119,128
+	pallettes pallette1,0,0,16
+	gosub draw
+	cdplay2 3
+	sleep 200
+	
+	while 1
+		disable screen
+		loadtiles sonic12,1119,128
+		pallettes pallette2,0,0,16
+		gosub draw
+		sleep 25
+	
+		disable screen
+		loadtiles sonic13,1119,128
+		pallettes pallette3,0,0,16
+		gosub draw
+		sleep 25
+		
+		disable screen
+		loadtiles sonic14,1119,128
+		pallettes pallette4,0,0,16
+		gosub draw
+		sleep 25
+	
+		disable screen
+		loadtiles sonic15,1119,128
+		pallettes pallette5,0,0,16
+		gosub draw
+		sleep 25
+	
+		disable screen
+		loadtiles sonic16,1119,128
+		pallettes pallette6,0,0,16
+		gosub draw
+		sleep 25
+	wend	
+
+draw:
+	i=128
+	for y=0 to 27
+		for x=0 to 39
+			drawtile i,x,y
+			i++
+		next
+	next
+	enable screen
+	return
+
+'draw:		' With basiegaxorz v0.12, you can now do this (just uncomment this line)
+	drawtilesinc 128,0,0,40,28
+	enable screen
+	return
+
+'Sonic Idle
+sonic1l:		datafile DATA\Sonicl1.bin,bin
+sonic12:		datafile DATA\SonicI2.bin,bin
+sonic13:		datafile DATA\SonicI3.bin,bin
+sonic14:		datafile DATA\SonicI4.bin,bin
+sonic15:		datafile DATA\SonicI5.bin,bin
+sonic16:		datafile DATA\SonicI6.bin,bin
+
+pallette1:		datafile PALETTES\SonicI1.bin,bin
+pallette2:		datafile PALETTES\SonicI2.bin,bin
+pallette3:		datafile PALETTES\SonicI3.bin,bin
+pallette4:		datafile PALETTES\SonicI4.bin,bin
+pallette5:		datafile PALETTES\SonicI5.bin,bin
+pallette6:		datafile PALETTES\SonicI6.bin,bin
