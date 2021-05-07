@@ -1,4 +1,6 @@
-        cdplay2 3	' Play audio track 2
+        option SEGACD PROGRAM
+	FreeAllSprites
+	cdplay2 3	' Play audio track 2
 	ink 1
 	locate 1,1: print "Animation Demo"
 	ink 1: locate 5,3: print "1) Sonic Walk"
