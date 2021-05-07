@@ -1,4 +1,5 @@
 	option SegaCd
+	addscd MenuPrg.scd
 	addscd MainPrg.scd
 	addscd MainPrg2.scd
 	disable screen
