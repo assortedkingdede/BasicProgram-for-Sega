@@ -1,0 +1,47 @@
+        cdplay2 3	' Play audio track 2
+	ink 1
+	locate 1,1: print "Animation Demo"
+	ink 1: locate 5,3: print "1) Sonic Walk"
+	ink 1: locate 6,3: print "2) Sonic Run"
+	
+	cursor=0
+	locate cursor+5,1: print ">"
+	
+	while 1
+		a=joypad()
+		if a.0 then
+			locate cursor+5,1: print " "
+			if cursor=0 then cursor=2
+			cursor--
+			locate cursor+5,1: print ">"
+			waitpadup 0
+		endif
+		if a.1 then
+			locate cursor+5,1: print " "
+			cursor++
+			if cursor=2 then cursor=0
+			locate cursor+5,1: print ">"
+			waitpadup 0
+		endif
+		if a.7 then
+			ink 0: locate 16,10: print "Loading!"
+			loadscd cursor+2
+		endif
+	wend
+	loadscd 2
+	
+draw:
+	i=128
+	for y=0 to 27
+		for x=0 to 39
+			drawtile i,x,y
+			i++
+		next
+	next
+	enable screen
+	return
+
+'draw:		' With basiegaxorz v0.12, you can now do this (just uncomment this line)
+	drawtilesinc 128,0,0,40,28
+	enable screen
+	return
